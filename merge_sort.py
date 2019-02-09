@@ -8,7 +8,6 @@ class Solution:
 		if length <= 1:
 			return nums
 		mid = length // 2
-		# 分治 + 递归
 		left = self.mergeSort(nums[:mid])
 		right = self.mergeSort(nums[mid:])
 		return self.merge(left, right)
@@ -22,7 +21,6 @@ class Solution:
 		res = []
 		p = q = 0
 		while p != len(left) and q != len(right):
-			# 使用 “<=” 保证排序的稳定性
 			if left[p] <= right[q]:
 				res.append(left[p])
 				p += 1
@@ -35,7 +33,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-	nums = [1,3,2,4,6,8,4,5,6,7,11,13,10,21,12]
+	nums = [20,1,3,2,4,6,8,4,5,6,7,3,2,1,10,15,21,12]
 	s = Solution()
 	r = s.mergeSort(nums)
 	print(r)
